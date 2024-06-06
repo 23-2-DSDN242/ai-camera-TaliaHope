@@ -23,13 +23,13 @@ function setup () {
   maskImg.loadPixels();
   colorMode(HSB);
 }
+
 function draw () {
   let num_lines_to_draw = 40;
-  let contrast = 1.5;
+  // get one scanline
   for(let j=renderCounter; j<renderCounter+num_lines_to_draw && j<1080; j++) {
     for(let i=0; i<1920; i++) {
       colorMode(RGB);
-
       let pix = sourceImg.get(i, j);
       let col = color(pix);
       let mask = maskImg.get(i, j);
@@ -38,9 +38,6 @@ function draw () {
       let h = hue(col);
       let s = saturation(col);
       let b = brightness(col);
-
-      b = (b - 50) * contrast + 50;
-      b = constrain(b, 0, 100);
 
       if(mask[0] < 128) {
         let new_brt = map(b, 0, 100, 60, 100);
