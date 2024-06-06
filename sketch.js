@@ -3,8 +3,8 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "input_2.jpg";
-let maskFile   = "mask_2.png";
+let sourceFile = "input_4.jpg";
+let maskFile   = "mask_4.png";
 let outputFile = "output_1.png";
 
 function preload() {
@@ -40,7 +40,7 @@ function draw () {
       let b = brightness(col);
 
       if(mask[0] < 128) {
-        let new_brt = map(b, 0, 100, 60, 100);
+        let new_brt = map(b, 0, 100, 20, 100);
         let new_hue = map(h, 0, 360, 0, 0);
         let new_col = color(new_hue, s, new_brt);
         set(i, j, new_col);
